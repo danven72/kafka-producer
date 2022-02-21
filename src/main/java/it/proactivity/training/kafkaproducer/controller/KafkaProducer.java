@@ -17,7 +17,7 @@ public class KafkaProducer {
 
 
     @GetMapping("/publish/{message}")
-    public String publishMessage(@PathVariable String message) {
+    public String publishMessage(@PathVariable("message") String message) {
         stringKafkaTemplate.send("springboot-kafka", message);
 
         return "Message [" + message + "] published successfully on Kafka";
